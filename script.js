@@ -6,18 +6,18 @@ const textoResultado = document.querySelector(".texto-resultado");
 
 const perguntas = [
   {
-    enunciado: "Pergunta 1",
+    enunciado: "Qual é a cor dos olhos do Dayvison?",
     alternativas: [
-      "Resposta 1",
-      "Resposta 2"
+      "Azuis",
+      "Verdes"
     ]
   },
 
   {
-    enunciado: "Pergunta 2",
+    enunciado: "Quem é o melhor vilão Jason ou Fred Krügger?",
     alternativas: [
-      "Resposta 1",
-      "Resposta 2"
+      "Jason",
+      "Fred"
     ]
   },
 
@@ -45,3 +45,22 @@ const perguntas = [
     ]
   }
 ];
+
+let atual = 0;
+let perguntaAtual;
+
+function mostraAlternativas() {
+  for (const alternativa of perguntaAtual.alternativas) {
+    const botaoAlternativas = document.createElement("button");
+    botaoAlternativas.textContent = alternativa;
+    caixaAlternativas.appendChild(botaoAlternativas);
+  }
+}
+
+function mostraPergunta() {
+  perguntaAtual = perguntas[atual];
+  caixaPerguntas.textContent = perguntaAtual.enunciado;
+   mostraAlternativas();
+}
+
+mostraPergunta();
